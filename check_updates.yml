@@ -1,0 +1,14 @@
+---
+- name: Check Available Updates (RHEL)
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Gather updates
+      ansible.builtin.yum:
+        list: updates
+      register: available_updates
+
+    - name: List updates
+      debug:
+        var: available_updates
