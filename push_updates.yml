@@ -1,0 +1,20 @@
+---
+name: Push available updates
+hosts: all
+gather_facts: no
+
+tasks:
+  - name: Push updates
+    ansible.builtin.yum:
+      name: '*'
+      state: latest
+    register: update_results
+
+  - name: Print results
+    debug:
+      var: update_results
+
+  - name: Reboot VM
+    reboot:
+      reboot_timeout: 600
+    when: update_results.changed

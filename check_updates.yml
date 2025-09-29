@@ -8,7 +8,7 @@
       ansible.builtin.yum:
         list: updates
       register: available_updates
-
+  
     - name: List updates
       debug:
         msg: "{{ item.name }} is available in version {{ item.version }}"
