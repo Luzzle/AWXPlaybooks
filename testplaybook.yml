@@ -1,0 +1,8 @@
+---
+- name: AWX Test Playbook
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Print hello world
+      debug:
+        msg: "Hello from AWX!"
