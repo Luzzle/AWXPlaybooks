@@ -1,0 +1,14 @@
+---
+- name: Remote Test
+  hosts: all
+  gather_facts: no
+  
+  tasks:
+    - name: Run echo remotely
+      ansible.builtin.shell: echo "Hello from $(hostname)"
+      register: echo_out
+
+    - name: Print result
+      debug:
+        var: echo_out.stdout
+    
