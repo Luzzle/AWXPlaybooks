@@ -12,5 +12,5 @@
     - name: List updates
       debug:
         msg: "{{ item.name }} is available in version {{ item.version }}"
-      loop: updates.results
+      loop: available_updates.results
       
