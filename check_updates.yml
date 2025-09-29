@@ -11,6 +11,5 @@
 
     - name: List updates
       debug:
-        msg: "{{ item.name }} is available in version {{ item.version }}"
-      loop: {{ available_updates.results | dict2items }}
-      
+        msg: "{{ item.key }} is available in version {{ item.value.version }}"
+      loop: "{{ available_updates.results | dict2items }}"
